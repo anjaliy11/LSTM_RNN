@@ -19,6 +19,51 @@ To run this project, ensure you have the following Python packages installed:
 * `numpy`
 * `pickle`
 
+---
+## Key Technical Details:
+
+## Data Processing:
+
+Input text is tokenized at the character level, creating sequences of fixed length.
+
+Each sequence of characters is mapped to integer indices representing the characters.
+
+Sequences are padded to ensure consistent input dimensions for the LSTM.
+
+## Model Architecture:
+
+Embedding Layer: Converts character indices into dense vectors.
+
+LSTM Layers: Captures sequential dependencies and long-term context in the text.
+
+Dense Output Layer: Applies a softmax activation to predict the probability distribution over the next character.
+
+## Training Details:
+
+Optimizer: Adam
+
+Loss Function: categorical_crossentropy
+
+Sequence Length: Customizable input length (e.g., 40 characters per sequence)
+
+Early Stopping can be applied to prevent overfitting and ensure generalization.
+
+## Prediction Pipeline:
+
+Given a seed text, the model predicts the next character iteratively to generate text.
+
+Uses a sliding window over the seed text to ensure context length matches the trained sequence length.
+
+Can generate coherent Shakespearean-style text, preserving syntax and vocabulary style.
+
+## Deployment:
+
+Streamlit-based interactive UI for real-time next-character or next-word predictions.
+
+Includes example phrases from Shakespeare for immediate demonstration.
+
+---
+
 You can install the required packages using pip:
 
 ```bash
